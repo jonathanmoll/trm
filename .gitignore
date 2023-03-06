@@ -1,0 +1,8 @@
+/__pycache__
+.idea/
+*.pyc
+/.coverage
+/htmlcov/*.*
+/coverage.xml
+/venv
+*.db
