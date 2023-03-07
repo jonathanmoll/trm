@@ -1,1 +1,4 @@
 scipy
+openpyxl
+pandas
+numpy

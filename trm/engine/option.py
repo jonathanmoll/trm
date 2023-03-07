@@ -22,12 +22,12 @@ class VanillaOption:
         self._call_price = None
         self._put_price = None
 
-    def _d1(self):
+    def _d1(self) -> float:
         numerator = math.log(self._s0 / self._k) + (self._r + (self._vol ** 2) / 2) * self._t
         denominator = self._vol * self._t ** (1/2)
         return numerator / denominator
 
-    def _d2(self, d1: float):
+    def _d2(self, d1: float) -> float:
         return d1 - self._vol * self._t ** (1/2)
 
     def _calc_call_price(self):
@@ -40,12 +40,12 @@ class VanillaOption:
             self._calc_call_price()
         self._put_price = self._call_price - self._s0 + self._k * math.exp(-self._r * self._t)
 
-    def get_call_price(self):
+    def get_call_price(self) -> float:
         if self._call_price is None:
             self._calc_call_price()
         return self._call_price
 
-    def get_put_price(self):
+    def get_put_price(self) -> float:
         if self._put_price is None:
             self._calc_put_price()
         return self._put_price
