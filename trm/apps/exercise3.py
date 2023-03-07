@@ -10,7 +10,7 @@ def add_call_and_put_price(row: pd.Series) -> Tuple[float, float]:
                            row['risk_free_rate'], row['volatility'])
 
     # return tuple of call- and put price
-    return option.get_call_price(), option.get_put_price()
+    return option.call_price, option.put_price
 
 
 def main():
