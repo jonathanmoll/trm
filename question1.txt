@@ -1,0 +1,8 @@
+
+Question 1. Explain the difference between implied and historical volatility:
+
+Implied volatility is derived from current option prices by solving for the volatility using for example
+the Black-Scholes formula. As a result, the implied volatility captures expectations for future volatility of the asset.
+
+On the other hand, historical volatility uses historical data to measure the historical volatility of the asset over
+some period of time. This does not contain information about future volatility expectations.

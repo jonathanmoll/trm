@@ -1,0 +1,26 @@
+
+Question 2. Explain VaR and list at least two calculation methods:
+
+Value at Risk (VaR) is a measure to quantify the risk of loss for investment portfolios.
+
+There are a lot of variants of VaR.
+Probably the most well known is the standard p-VaR, which is the
+amount, such that a loss greater than that amount is at most (1-p)
+However, this gives no information about the expected loss, because that depends on the average loss-amount in case of
+a VaR breach. To take this into account, Conditional Value at Risk (CVaR), also known as expected shortfall is often
+used. It is defined as the expected loss in the worst q% of the cases. But, there are a lot more variants.
+
+In general, you have a number of different techniques to calculate VaR measures.
+
+1. historical data only
+This method just orders historical returns. After that you can take a quantile, for example 5% as a VaR measure.
+
+2. Fitting a return distribution
+This method calibrates parameters for a predetermined return distribution (for example a Beta distribution) based on
+historical data and then uses the distribution quantiles for the VaR measure.
+
+3. Monte Carlo Simulation
+Using a stochastic scenario generator, a lot of different scenarios are generated. For each of these scenarios, the
+portfolio return is calculated. The returns can then be ordered and a certain quantile can be used as a VaR measure.
+
+

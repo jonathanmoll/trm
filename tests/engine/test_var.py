@@ -7,7 +7,7 @@ from trm.engine.var import ValueAtRisk
 
 
 def test_var_1day():
-    data_path = pd.read_excel(os.path.dirname(os.path.abspath(__file__)) + '\\data\\exercise4_test_data.xlsx')
+    data_path = pd.read_excel(os.path.dirname(os.path.abspath(__file__)) + '\\data\\question4_test_data.xlsx')
     data_df: pd.DataFrame = data_path
     spot_portfolio_values = data_df[['ccy1', 'ccy2']].iloc[0].to_numpy()
     data_df = data_df.dropna()

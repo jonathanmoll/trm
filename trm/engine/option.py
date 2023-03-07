@@ -14,7 +14,6 @@ class VanillaOption:
         _r (float): continuous compounded risk-free rate
         _vol (float): volatility
         _call_price (float): call option price
-        _put_price (float): put option price
 
     """
 
@@ -24,7 +23,8 @@ class VanillaOption:
                  stock_price_t0: float,
                  strike_price: float,
                  risk_free_rate: float,
-                 volatility: float):
+                 volatility: float,
+                 dividend_yield: float = None):
         """ Initializes the object by setting the class attributes
 
         Args:
@@ -32,15 +32,23 @@ class VanillaOption:
             expiry_date: expiry date
             stock_price_t0: stock price at t0
             strike_price: strike price
-            risk_free_rate: annualized risk-free rate
+            risk_free_rate: annually compounded risk-free rate
             volatility: volatility of the stock
+            dividend_yield: continuous compounded dividend yield, defaults to None
         """
-
-        self._s0 = stock_price_t0
         self._k = strike_price
         self._t = (expiry_date - trade_date).days / 365
-        self._r = math.log(1 + risk_free_rate)
         self._vol = volatility
+
+        # convert from annual to continuous compounding
+        self._r = math.log(1 + risk_free_rate)
+
+        # if dividend paying, discount the initial stock value with continuous dividend rate
+        if dividend_yield is None:
+            self._s0 = stock_price_t0
+        else:
+            self._s0 = stock_price_t0 * math.exp(-dividend_yield * self._t)
+
         self._call_price = None
         self._put_price = None
 

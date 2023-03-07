@@ -7,7 +7,7 @@ from trm.engine.var import ValueAtRisk
 def main():
 
     # read data as dataframe
-    data_df: pd.DataFrame = pd.read_excel('input/exercise4_input.xlsx')
+    data_df: pd.DataFrame = pd.read_excel('input/question4_input.xlsx')
 
     # get spot portfolio values as ndarray
     spot_portfolio_values = data_df[['ccy1', 'ccy2']].iloc[0].to_numpy()
